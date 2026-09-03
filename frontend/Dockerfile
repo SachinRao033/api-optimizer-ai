@@ -1,36 +1,33 @@
 # Multi-stage Dockerfile for React Frontend with Nginx
 
-# Stage 1: Build stage
+# Stage 1: Build React application
 FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy package files first for Docker layer caching
 COPY frontend/package*.json ./
-RUN npm ci --silent
 
-# Copy frontend source code and build production bundle
-COPY frontend ./
+# Install dependencies
+RUN npm ci
+
+# Copy frontend source
+COPY frontend/ ./
+
+# Build production application
 RUN npm run build
 
-# Stage 2: Production Nginx stage
+
+# Stage 2: Nginx production server
 FROM nginx:1.25-alpine AS runner
 
-# Remove default nginx static assets
+# Remove default Nginx files
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy build files from builder stage
+# Copy React production build
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# Copy custom Nginx configuration
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
+# Expose HTTP
 EXPOSE 80
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-    CMD wget --quiet --tries=1 --spider http://localhost:80/ || exit 1
-
-# Start Nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]

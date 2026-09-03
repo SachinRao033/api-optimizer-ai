@@ -193,5 +193,5 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 ---
 
 <p center>
-  Developed with ❤️ by <a href="https://github.com/abdulrahmanrifayath">Abdulrahman Rifayath</a>
+  Developed with ❤️ by <a href="https://github.com/SachinRao033">Sachin Rao</a>
 </p>

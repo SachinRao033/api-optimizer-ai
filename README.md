@@ -1,6 +1,6 @@
 # 🔮 API Optimizer AI — Intelligent API Telemetry, Performance Optimization & Business Intelligence Platform
 
-[![Build Status](https://img.shields.io/badge/CI%2FCD-Passing-10b981?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/abdulrahmanrifayath/api-optimizer-ai/actions)
+[![Build Status](https://img.shields.io/badge/CI%2FCD-Passing-10b981?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/SachinRao033/api-optimizer-ai/actions)
 [![React](https://img.shields.io/badge/React-19.0-61dafb?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-2.0-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Python](https://img.shields.io/badge/Python-3.13-3776ab?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
